@@ -1,0 +1,514 @@
+<!--
+  Retro SAP GUI design system for WPF.
+  Tokens mirror design/retro-sap-gui/colors_and_type.css; component styles mirror components.css.
+  Rules: 0px radius, 1px two-tone bevels, no shadows/blur, MS Sans Serif at 11px, amber #F0AB00 for selection.
+-->
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:ui="clr-namespace:RetroCap.Ui">
+
+  <!-- ===== Color tokens ===== -->
+  <Color x:Key="C.Surface">#D6E4F1</Color>
+  <Color x:Key="C.Surface2">#EAF1F8</Color>
+  <Color x:Key="C.Surface3">#F5F8FB</Color>
+  <Color x:Key="C.SurfaceToolbar">#DCE6F2</Color>
+  <Color x:Key="C.HeaderBlue1">#003D7A</Color>
+  <Color x:Key="C.HeaderBlue2">#2A6FB8</Color>
+  <Color x:Key="C.HeaderGloss">#6FA3D6</Color>
+  <Color x:Key="C.Accent">#F0AB00</Color>
+
+  <SolidColorBrush x:Key="Sap.Surface" Color="#D6E4F1"/>
+  <SolidColorBrush x:Key="Sap.Surface2" Color="#EAF1F8"/>
+  <SolidColorBrush x:Key="Sap.Surface3" Color="#F5F8FB"/>
+  <SolidColorBrush x:Key="Sap.SurfaceInset" Color="#FFFFFF"/>
+  <SolidColorBrush x:Key="Sap.HeaderBlue1" Color="#003D7A"/>
+  <SolidColorBrush x:Key="Sap.HeaderBlue2" Color="#2A6FB8"/>
+  <SolidColorBrush x:Key="Sap.Accent" Color="#F0AB00"/>
+  <SolidColorBrush x:Key="Sap.AccentSoft" Color="#FFE8A8"/>
+  <SolidColorBrush x:Key="Sap.AccentPale" Color="#FFF6D9"/>
+  <SolidColorBrush x:Key="Sap.BorderLight" Color="#FFFFFF"/>
+  <SolidColorBrush x:Key="Sap.BorderMid" Color="#A6B4C5"/>
+  <SolidColorBrush x:Key="Sap.BorderDark" Color="#6E7A89"/>
+  <SolidColorBrush x:Key="Sap.Fg" Color="#000000"/>
+  <SolidColorBrush x:Key="Sap.FgMuted" Color="#4A5566"/>
+  <SolidColorBrush x:Key="Sap.FgDisabled" Color="#8A95A5"/>
+  <SolidColorBrush x:Key="Sap.FocusField" Color="#FFFFE1"/>
+  <SolidColorBrush x:Key="Sap.Tooltip" Color="#FFFFE1"/>
+  <SolidColorBrush x:Key="Sap.StatusError" Color="#C8281E"/>
+  <SolidColorBrush x:Key="Sap.StatusInfo" Color="#1F6BB8"/>
+  <SolidColorBrush x:Key="Sap.StatusInfoBg" Color="#E0EDF8"/>
+  <SolidColorBrush x:Key="Sap.StatusSuccess" Color="#2E8B3E"/>
+  <SolidColorBrush x:Key="Sap.StatusSuccessBg" Color="#E2F1E5"/>
+  <SolidColorBrush x:Key="Sap.StatusWarningBg" Color="#FFF4D6"/>
+
+  <!-- ===== Gradients ===== -->
+  <LinearGradientBrush x:Key="Sap.GradientTitlebar" StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Color="#003D7A" Offset="0"/>
+    <GradientStop Color="#2A6FB8" Offset="0.35"/>
+    <GradientStop Color="#6FA3D6" Offset="0.5"/>
+    <GradientStop Color="#2A6FB8" Offset="0.65"/>
+    <GradientStop Color="#003D7A" Offset="1"/>
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="Sap.GradientToolbar" StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Color="#F5F8FB" Offset="0"/>
+    <GradientStop Color="#DCE6F2" Offset="1"/>
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="Sap.GradientButton" StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Color="#FFFFFF" Offset="0"/>
+    <GradientStop Color="#E2EAF3" Offset="1"/>
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="Sap.GradientButtonHover" StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Color="#FFF6D9" Offset="0"/>
+    <GradientStop Color="#FFD984" Offset="1"/>
+  </LinearGradientBrush>
+  <LinearGradientBrush x:Key="Sap.GradientButtonPress" StartPoint="0,0" EndPoint="0,1">
+    <GradientStop Color="#DDC575" Offset="0"/>
+    <GradientStop Color="#FFE8A8" Offset="1"/>
+  </LinearGradientBrush>
+
+  <!-- ===== Type ===== -->
+  <FontFamily x:Key="Sap.Font">Microsoft Sans Serif, Tahoma, Segoe UI</FontFamily>
+  <FontFamily x:Key="Sap.FontMono">Lucida Console, Courier New</FontFamily>
+
+  <!-- Classic Windows focus ring: dotted 1px black, inset from the control edge. -->
+  <Style x:Key="Sap.FocusVisual">
+    <Setter Property="Control.Template">
+      <Setter.Value>
+        <ControlTemplate>
+          <Rectangle Margin="3" Stroke="Black" StrokeThickness="1" StrokeDashArray="1 1" SnapsToDevicePixels="True"/>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- 16x16 pixel icon: aliased so pixel art stays hard-edged. -->
+  <Style x:Key="Sap.Icon" TargetType="Image">
+    <Setter Property="Width" Value="16"/>
+    <Setter Property="Height" Value="16"/>
+    <Setter Property="RenderOptions.EdgeMode" Value="Aliased"/>
+    <Setter Property="SnapsToDevicePixels" Value="True"/>
+  </Style>
+
+  <Style x:Key="Sap.Text" TargetType="TextBlock">
+    <Setter Property="FontFamily" Value="{StaticResource Sap.Font}"/>
+    <Setter Property="FontSize" Value="11"/>
+    <Setter Property="Foreground" Value="{StaticResource Sap.Fg}"/>
+    <Setter Property="VerticalAlignment" Value="Center"/>
+  </Style>
+
+  <!-- ===== Button (.sap-btn) ===== -->
+  <Style x:Key="Sap.Button" TargetType="Button">
+    <Setter Property="FontFamily" Value="{StaticResource Sap.Font}"/>
+    <Setter Property="FontSize" Value="11"/>
+    <Setter Property="Foreground" Value="{StaticResource Sap.Fg}"/>
+    <Setter Property="Padding" Value="10,2"/>
+    <Setter Property="MinHeight" Value="22"/>
+    <Setter Property="MinWidth" Value="64"/>
+    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="FocusVisualStyle" Value="{StaticResource Sap.FocusVisual}"/>
+    <Setter Property="SnapsToDevicePixels" Value="True"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <ui:Bevel x:Name="bv" Kind="OutStrong" Background="{StaticResource Sap.GradientButton}" Padding="{TemplateBinding Padding}">
+            <ContentPresenter x:Name="cp" RecognizesAccessKey="True"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+          </ui:Bevel>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter TargetName="bv" Property="Background" Value="{StaticResource Sap.GradientButtonHover}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+              <Setter TargetName="bv" Property="Kind" Value="InStrong"/>
+              <Setter TargetName="bv" Property="Background" Value="{StaticResource Sap.GradientButtonPress}"/>
+              <Setter TargetName="cp" Property="Margin" Value="1,1,-1,-1"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter TargetName="bv" Property="Kind" Value="Out"/>
+              <Setter TargetName="bv" Property="Background" Value="{StaticResource Sap.Surface2}"/>
+              <Setter Property="Foreground" Value="{StaticResource Sap.FgDisabled}"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- Primary action: amber fill (the system's single warm accent). -->
+  <Style x:Key="Sap.Button.Primary" TargetType="Button" BasedOn="{StaticResource Sap.Button}">
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <ui:Bevel x:Name="bv" Kind="OutStrong" Background="{StaticResource Sap.Accent}" Padding="{TemplateBinding Padding}">
+            <ContentPresenter x:Name="cp" RecognizesAccessKey="True"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+          </ui:Bevel>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter TargetName="bv" Property="Background" Value="{StaticResource Sap.GradientButtonHover}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+              <Setter TargetName="bv" Property="Kind" Value="InStrong"/>
+              <Setter TargetName="bv" Property="Background" Value="{StaticResource Sap.GradientButtonPress}"/>
+              <Setter TargetName="cp" Property="Margin" Value="1,1,-1,-1"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ===== Toolbar button (.sap-btn.toolbar) ===== -->
+  <Style x:Key="Sap.ToolButton" TargetType="Button">
+    <Setter Property="FontFamily" Value="{StaticResource Sap.Font}"/>
+    <Setter Property="FontSize" Value="11"/>
+    <Setter Property="Foreground" Value="{StaticResource Sap.Fg}"/>
+    <Setter Property="Padding" Value="3,2"/>
+    <Setter Property="MinHeight" Value="22"/>
+    <Setter Property="MinWidth" Value="22"/>
+    <Setter Property="Focusable" Value="False"/>
+    <Setter Property="SnapsToDevicePixels" Value="True"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <ui:Bevel x:Name="bv" Kind="None" Background="Transparent" Padding="{TemplateBinding Padding}">
+            <ContentPresenter x:Name="cp" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+          </ui:Bevel>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter TargetName="bv" Property="Kind" Value="Out"/>
+              <Setter TargetName="bv" Property="Background" Value="{StaticResource Sap.AccentSoft}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+              <Setter TargetName="bv" Property="Kind" Value="In"/>
+              <Setter TargetName="cp" Property="Margin" Value="1,1,-1,-1"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter Property="Foreground" Value="{StaticResource Sap.FgDisabled}"/>
+              <Setter TargetName="cp" Property="Opacity" Value="0.45"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- Toggle variant: the active tool stays pressed (inset + press gradient). -->
+  <Style x:Key="Sap.ToolToggle" TargetType="ToggleButton">
+    <Setter Property="FontFamily" Value="{StaticResource Sap.Font}"/>
+    <Setter Property="FontSize" Value="11"/>
+    <Setter Property="Foreground" Value="{StaticResource Sap.Fg}"/>
+    <Setter Property="Padding" Value="3,2"/>
+    <Setter Property="MinHeight" Value="22"/>
+    <Setter Property="MinWidth" Value="22"/>
+    <Setter Property="Focusable" Value="False"/>
+    <Setter Property="SnapsToDevicePixels" Value="True"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="ToggleButton">
+          <ui:Bevel x:Name="bv" Kind="None" Background="Transparent" Padding="{TemplateBinding Padding}">
+            <ContentPresenter x:Name="cp" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+          </ui:Bevel>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter TargetName="bv" Property="Kind" Value="Out"/>
+              <Setter TargetName="bv" Property="Background" Value="{StaticResource Sap.AccentSoft}"/>
+            </Trigger>
+            <Trigger Property="IsChecked" Value="True">
+              <Setter TargetName="bv" Property="Kind" Value="In"/>
+              <Setter TargetName="bv" Property="Background" Value="{StaticResource Sap.GradientButtonPress}"/>
+              <Setter TargetName="cp" Property="Margin" Value="1,1,-1,-1"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+              <Setter TargetName="bv" Property="Kind" Value="In"/>
+              <Setter TargetName="cp" Property="Margin" Value="1,1,-1,-1"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- Toolbar separator (.sap-toolbar .sep): 1px dark + 1px light, 18px tall. -->
+  <Style x:Key="Sap.ToolSeparator" TargetType="Border">
+    <Setter Property="Width" Value="2"/>
+    <Setter Property="Height" Value="18"/>
+    <Setter Property="Margin" Value="3,0"/>
+    <Setter Property="BorderThickness" Value="1,0,1,0"/>
+    <Setter Property="SnapsToDevicePixels" Value="True"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="BorderBrush">
+      <Setter.Value>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+          <GradientStop Color="#6E7A89" Offset="0"/>
+          <GradientStop Color="#6E7A89" Offset="0.5"/>
+          <GradientStop Color="#FFFFFF" Offset="0.5"/>
+          <GradientStop Color="#FFFFFF" Offset="1"/>
+        </LinearGradientBrush>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ===== Input (.sap-input) ===== -->
+  <Style x:Key="Sap.TextBox" TargetType="TextBox">
+    <Setter Property="FontFamily" Value="{StaticResource Sap.Font}"/>
+    <Setter Property="FontSize" Value="11"/>
+    <Setter Property="Foreground" Value="{StaticResource Sap.Fg}"/>
+    <Setter Property="Padding" Value="2,1"/>
+    <Setter Property="MinHeight" Value="22"/>
+    <Setter Property="VerticalContentAlignment" Value="Center"/>
+    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+    <Setter Property="SnapsToDevicePixels" Value="True"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="TextBox">
+          <ui:Bevel x:Name="bv" Kind="InStrong" Background="{StaticResource Sap.SurfaceInset}" Padding="{TemplateBinding Padding}">
+            <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                          HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+          </ui:Bevel>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsKeyboardFocused" Value="True">
+              <Setter TargetName="bv" Property="Background" Value="{StaticResource Sap.FocusField}"/>
+            </Trigger>
+            <Trigger Property="IsReadOnly" Value="True">
+              <Setter TargetName="bv" Property="Background" Value="{StaticResource Sap.Surface3}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter TargetName="bv" Property="Background" Value="{StaticResource Sap.Surface2}"/>
+              <Setter Property="Foreground" Value="{StaticResource Sap.FgDisabled}"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ===== Checkbox (.sap-check): pixel check mark, never a Unicode glyph ===== -->
+  <Style x:Key="Sap.CheckBox" TargetType="CheckBox">
+    <Setter Property="FontFamily" Value="{StaticResource Sap.Font}"/>
+    <Setter Property="FontSize" Value="11"/>
+    <Setter Property="Foreground" Value="{StaticResource Sap.Fg}"/>
+    <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+    <Setter Property="SnapsToDevicePixels" Value="True"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="CheckBox">
+          <StackPanel Orientation="Horizontal" Background="Transparent">
+            <ui:Bevel x:Name="box" Kind="InStrong" Background="{StaticResource Sap.SurfaceInset}" Width="13" Height="13" VerticalAlignment="Center">
+              <Path x:Name="mark" Visibility="Collapsed" Fill="Black" RenderOptions.EdgeMode="Aliased"
+                    Data="M6,0h1v1h-1z M5,1h2v1h-2z M0,2h1v1h-1z M4,2h2v1h-2z M0,3h2v1h-2z M3,3h2v1h-2z M1,4h3v1h-3z M2,5h1v1h-1z"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </ui:Bevel>
+            <ContentPresenter Margin="4,0,0,0" VerticalAlignment="Center" RecognizesAccessKey="True"/>
+          </StackPanel>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsChecked" Value="True">
+              <Setter TargetName="mark" Property="Visibility" Value="Visible"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter TargetName="box" Property="Background" Value="{StaticResource Sap.AccentPale}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter TargetName="box" Property="Background" Value="{StaticResource Sap.Surface2}"/>
+              <Setter Property="Foreground" Value="{StaticResource Sap.FgDisabled}"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ===== Fieldset / group panel (.sap-fieldset) ===== -->
+  <Style x:Key="Sap.Fieldset" TargetType="HeaderedContentControl">
+    <Setter Property="FontFamily" Value="{StaticResource Sap.Font}"/>
+    <Setter Property="FontSize" Value="11"/>
+    <Setter Property="Focusable" Value="False"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="HeaderedContentControl">
+          <Grid>
+            <ui:Bevel Kind="Fieldset" Background="{StaticResource Sap.Surface2}" Margin="0,7,0,0" Padding="8,12,8,8">
+              <ContentPresenter/>
+            </ui:Bevel>
+            <Border Background="{StaticResource Sap.Surface}" Padding="4,0" Margin="8,0,0,0"
+                    HorizontalAlignment="Left" VerticalAlignment="Top">
+              <ContentPresenter ContentSource="Header" TextElement.FontWeight="Bold"/>
+            </Border>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ===== Tooltip: pale yellow, 1px black hairline ===== -->
+  <Style TargetType="ToolTip">
+    <Setter Property="FontFamily" Value="{StaticResource Sap.Font}"/>
+    <Setter Property="FontSize" Value="11"/>
+    <Setter Property="HasDropShadow" Value="False"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="ToolTip">
+          <ui:Bevel Kind="Hairline" Background="{StaticResource Sap.Tooltip}" Padding="5,2">
+            <ContentPresenter TextElement.Foreground="Black"/>
+          </ui:Bevel>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ===== Context menu (.menu) ===== -->
+  <Style TargetType="ContextMenu">
+    <Setter Property="FontFamily" Value="{StaticResource Sap.Font}"/>
+    <Setter Property="FontSize" Value="11"/>
+    <Setter Property="HasDropShadow" Value="False"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="ContextMenu">
+          <ui:Bevel Kind="OutStrong" Background="{StaticResource Sap.Surface2}" Padding="1" MinWidth="180">
+            <StackPanel IsItemsHost="True"/>
+          </ui:Bevel>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <Style TargetType="MenuItem">
+    <Setter Property="FontFamily" Value="{StaticResource Sap.Font}"/>
+    <Setter Property="FontSize" Value="11"/>
+    <Setter Property="Foreground" Value="Black"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="MenuItem">
+          <Border x:Name="bg" Background="Transparent" Padding="4,3,16,3">
+            <Grid>
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="18"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+              </Grid.ColumnDefinitions>
+              <ContentPresenter ContentSource="Icon" Width="14" Height="14" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+              <ContentPresenter Grid.Column="1" ContentSource="Header" RecognizesAccessKey="True" VerticalAlignment="Center"/>
+              <TextBlock x:Name="key" Grid.Column="2" Text="{TemplateBinding InputGestureText}" Margin="16,0,0,0"
+                         FontSize="10" Foreground="{StaticResource Sap.FgMuted}" VerticalAlignment="Center"/>
+            </Grid>
+          </Border>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsHighlighted" Value="True">
+              <Setter TargetName="bg" Property="Background" Value="{StaticResource Sap.HeaderBlue2}"/>
+              <Setter Property="Foreground" Value="White"/>
+              <Setter TargetName="key" Property="Foreground" Value="White"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter Property="Foreground" Value="{StaticResource Sap.FgDisabled}"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <Style TargetType="Separator">
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Separator">
+          <StackPanel Margin="0,2">
+            <Rectangle Height="1" Fill="{StaticResource Sap.BorderDark}"/>
+            <Rectangle Height="1" Fill="{StaticResource Sap.BorderLight}"/>
+          </StackPanel>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ===== Title bar caption button (.sap-titlebar-btn) ===== -->
+  <Style x:Key="Sap.CaptionButton" TargetType="Button">
+    <Setter Property="Width" Value="16"/>
+    <Setter Property="Height" Value="14"/>
+    <Setter Property="Margin" Value="2,0,0,0"/>
+    <Setter Property="Focusable" Value="False"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="Button">
+          <ui:Bevel x:Name="bv" Kind="Out" Background="{StaticResource Sap.Surface}">
+            <ContentPresenter x:Name="cp" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+          </ui:Bevel>
+          <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+              <Setter TargetName="bv" Property="Background" Value="{StaticResource Sap.AccentSoft}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+              <Setter TargetName="bv" Property="Kind" Value="In"/>
+              <Setter TargetName="cp" Property="Margin" Value="1,1,-1,-1"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ===== Window chrome (.sap-window + .sap-titlebar) ===== -->
+  <Style TargetType="ui:SapWindow">
+    <Setter Property="Background" Value="{StaticResource Sap.Surface}"/>
+    <Setter Property="FontFamily" Value="{StaticResource Sap.Font}"/>
+    <Setter Property="FontSize" Value="11"/>
+    <Setter Property="Foreground" Value="{StaticResource Sap.Fg}"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="ui:SapWindow">
+          <ui:Bevel Kind="OutStrong" Background="{TemplateBinding Background}">
+            <DockPanel>
+              <Border x:Name="PART_TitleBar" DockPanel.Dock="Top" Background="{StaticResource Sap.GradientTitlebar}"
+                      BorderBrush="#001E3F" BorderThickness="0,0,0,1" Padding="5,3">
+                <DockPanel>
+                  <Image DockPanel.Dock="Left" Source="{TemplateBinding TitleIcon}" Style="{StaticResource Sap.Icon}"
+                         Width="14" Height="14" Margin="0,0,6,0"/>
+                  <StackPanel DockPanel.Dock="Right" Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button x:Name="PART_Min" Style="{StaticResource Sap.CaptionButton}" ToolTip="Minimize">
+                      <Rectangle Width="6" Height="2" Fill="Black" Margin="0,5,0,0"/>
+                    </Button>
+                    <Button x:Name="PART_Close" Style="{StaticResource Sap.CaptionButton}" ToolTip="Close">
+                      <Path Fill="Black" RenderOptions.EdgeMode="Aliased"
+                            Data="M0,0h2v1h-2z M5,0h2v1h-2z M1,1h2v1h-2z M4,1h2v1h-2z M2,2h3v1h-3z M2,3h3v1h-3z M1,4h2v1h-2z M4,4h2v1h-2z M0,5h2v1h-2z M5,5h2v1h-2z"/>
+                    </Button>
+                  </StackPanel>
+                  <Grid VerticalAlignment="Center">
+                    <!-- 1px hard text shadow (text-shadow: 0 1px 0 rgba(0,0,0,.4)) -->
+                    <TextBlock Text="{TemplateBinding Title}" FontWeight="Bold" FontSize="12" Foreground="#66000000" Margin="0,1,0,-1"/>
+                    <TextBlock Text="{TemplateBinding Title}" FontWeight="Bold" FontSize="12" Foreground="White"/>
+                  </Grid>
+                </DockPanel>
+              </Border>
+              <ContentPresenter/>
+            </DockPanel>
+          </ui:Bevel>
+          <ControlTemplate.Triggers>
+            <Trigger Property="CanMinimize" Value="False">
+              <Setter TargetName="PART_Min" Property="Visibility" Value="Collapsed"/>
+            </Trigger>
+          </ControlTemplate.Triggers>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
+  <!-- ===== Status bar (.sap-statusbar) ===== -->
+  <Style x:Key="Sap.StatusBar" TargetType="ui:Bevel">
+    <Setter Property="Kind" Value="In"/>
+    <Setter Property="Background" Value="{StaticResource Sap.Surface2}"/>
+    <Setter Property="Padding" Value="6,2"/>
+    <Setter Property="TextElement.FontSize" Value="10"/>
+  </Style>
+
+  <!-- ===== Toolbar strip (.sap-toolbar) ===== -->
+  <Style x:Key="Sap.Toolbar" TargetType="Border">
+    <Setter Property="Background" Value="{StaticResource Sap.GradientToolbar}"/>
+    <Setter Property="BorderBrush" Value="{StaticResource Sap.BorderMid}"/>
+    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+    <Setter Property="Padding" Value="4,3"/>
+    <Setter Property="SnapsToDevicePixels" Value="True"/>
+  </Style>
+
+</ResourceDictionary>

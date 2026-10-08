@@ -1,0 +1,104 @@
+<ui:SapWindow x:Class="RetroCap.MainWindow"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+              xmlns:ui="clr-namespace:RetroCap.Ui"
+              Title="RetroCap - Screen Capture"
+              TitleIcon="{StaticResource Icon.capture}"
+              Width="440" SizeToContent="Height"
+              WindowStartupLocation="CenterScreen">
+  <DockPanel>
+    <!-- Application toolbar -->
+    <Border DockPanel.Dock="Top" Style="{StaticResource Sap.Toolbar}">
+      <StackPanel Orientation="Horizontal">
+        <Button x:Name="CaptureButton" Style="{StaticResource Sap.ToolButton}" Padding="5,2" ToolTip="New Capture  (Ctrl+Alt+A)">
+          <StackPanel Orientation="Horizontal">
+            <Image Source="{StaticResource Icon.capture}" Style="{StaticResource Sap.Icon}"/>
+            <TextBlock Text="New Capture" Margin="4,0,0,0" VerticalAlignment="Center"/>
+          </StackPanel>
+        </Button>
+        <Button x:Name="DelayButton" Style="{StaticResource Sap.ToolButton}" Padding="5,2" ToolTip="Capture after 3 seconds">
+          <StackPanel Orientation="Horizontal">
+            <Image Source="{StaticResource Icon.clock}" Style="{StaticResource Sap.Icon}"/>
+            <TextBlock Text="Delay 3s" Margin="4,0,0,0" VerticalAlignment="Center"/>
+          </StackPanel>
+        </Button>
+        <Border Style="{StaticResource Sap.ToolSeparator}"/>
+        <Button x:Name="OpenFolderButton" Style="{StaticResource Sap.ToolButton}" ToolTip="Open Save Folder">
+          <Image Source="{StaticResource Icon.folder}" Style="{StaticResource Sap.Icon}"/>
+        </Button>
+        <Button x:Name="HideButton" Style="{StaticResource Sap.ToolButton}" ToolTip="Hide to Notification Area">
+          <Image Source="{StaticResource Icon.back}" Style="{StaticResource Sap.Icon}"/>
+        </Button>
+      </StackPanel>
+    </Border>
+
+    <!-- Status bar -->
+    <ui:Bevel DockPanel.Dock="Bottom" Style="{StaticResource Sap.StatusBar}">
+      <DockPanel>
+        <TextBlock DockPanel.Dock="Right" Text="RC01  v1.0.0" FontFamily="{StaticResource Sap.FontMono}" FontSize="10" Foreground="{StaticResource Sap.FgMuted}"/>
+        <TextBlock x:Name="StatusText" Text="Ready." FontSize="10" TextTrimming="CharacterEllipsis"/>
+      </DockPanel>
+    </ui:Bevel>
+
+    <StackPanel Margin="8,6,8,10">
+      <!-- Message strip (.sap-message.info) -->
+      <Border Background="{StaticResource Sap.StatusInfoBg}" BorderBrush="{StaticResource Sap.StatusInfo}" BorderThickness="1" Padding="6,3" Margin="0,0,0,6">
+        <StackPanel Orientation="Horizontal">
+          <Image Source="{StaticResource Icon.info}" Style="{StaticResource Sap.Icon}" Width="14" Height="14"/>
+          <TextBlock x:Name="HintText" Margin="6,0,0,0" VerticalAlignment="Center" Text="Press Ctrl+Alt+A in any application to capture the screen."/>
+        </StackPanel>
+      </Border>
+
+      <HeaderedContentControl Header="Hotkey" Style="{StaticResource Sap.Fieldset}">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="96"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+          <TextBlock Text="Capture:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,6,0"/>
+          <TextBox Grid.Column="1" Style="{StaticResource Sap.TextBox}" Text="Ctrl+Alt+A" IsReadOnly="True" FontFamily="{StaticResource Sap.FontMono}"/>
+          <Border x:Name="HotkeyTag" Grid.Column="2" Margin="6,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"
+                  Background="{StaticResource Sap.StatusSuccessBg}" BorderBrush="{StaticResource Sap.StatusSuccess}" BorderThickness="1" Padding="6,1">
+            <TextBlock x:Name="HotkeyTagText" Text="Registered" FontSize="10"/>
+          </Border>
+        </Grid>
+      </HeaderedContentControl>
+
+      <HeaderedContentControl Header="Output" Style="{StaticResource Sap.Fieldset}" Margin="0,8,0,0">
+        <StackPanel>
+          <Grid>
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="96"/>
+              <ColumnDefinition Width="*"/>
+              <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Save Folder:" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,6,0"/>
+            <TextBox x:Name="FolderBox" Grid.Column="1" Style="{StaticResource Sap.TextBox}"/>
+            <Button x:Name="BrowseButton" Grid.Column="2" Style="{StaticResource Sap.Button}" Content="Browse..." Margin="6,0,0,0"/>
+          </Grid>
+          <CheckBox x:Name="AutoSaveCheck" Style="{StaticResource Sap.CheckBox}" Margin="102,8,0,0"
+                    Content="Also save a PNG to this folder on Copy"/>
+          <TextBlock Text="File name: Screenshot_yyyyMMdd_HHmmss.png" Margin="119,2,0,0" FontSize="10" Foreground="{StaticResource Sap.FgMuted}"/>
+        </StackPanel>
+      </HeaderedContentControl>
+
+      <HeaderedContentControl Header="Options" Style="{StaticResource Sap.Fieldset}" Margin="0,8,0,0">
+        <StackPanel Margin="102,0,0,0">
+          <CheckBox x:Name="HideCheck" Style="{StaticResource Sap.CheckBox}" Content="Hide this window while capturing"/>
+          <CheckBox x:Name="StartupCheck" Style="{StaticResource Sap.CheckBox}" Content="Start with Windows" Margin="0,6,0,0"/>
+        </StackPanel>
+      </HeaderedContentControl>
+
+      <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+        <Button x:Name="CaptureNowButton" Style="{StaticResource Sap.Button.Primary}" Padding="10,2">
+          <StackPanel Orientation="Horizontal">
+            <Image Source="{StaticResource Icon.execute}" Style="{StaticResource Sap.Icon}"/>
+            <TextBlock Text="Execute Capture" Margin="4,0,0,0" FontWeight="Bold" VerticalAlignment="Center"/>
+          </StackPanel>
+        </Button>
+        <Button x:Name="ExitButton" Style="{StaticResource Sap.Button}" Content="Exit" Margin="4,0,0,0"/>
+      </StackPanel>
+    </StackPanel>
+  </DockPanel>
+</ui:SapWindow>

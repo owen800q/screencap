@@ -1,0 +1,349 @@
+/* ============================================================
+   Retro SAP GUI — Components
+   Companion to colors_and_type.css
+   ============================================================ */
+
+/* ---------- Window / Panel ---------------------------------- */
+.sap-window {
+  background: var(--surface);
+  box-shadow: var(--bevel-out-strong);
+  font-family: var(--font-system);
+  font-size: var(--type-sm);
+  color: var(--fg);
+}
+
+.sap-titlebar {
+  background: var(--gradient-titlebar);
+  color: var(--fg-on-header);
+  font-family: var(--font-bold);
+  font-weight: 700;
+  font-size: var(--type-md);
+  padding: 3px 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid #001E3F;
+  text-shadow: 0 1px 0 rgba(0,0,0,.4);
+}
+.sap-titlebar .grow { flex: 1; }
+.sap-titlebar .sap-titlebar-btn {
+  width: 16px; height: 14px;
+  background: var(--surface);
+  box-shadow: var(--bevel-out);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-system); font-size: 10px; color: #000;
+  cursor: default;
+}
+
+.sap-menubar {
+  background: var(--surface-2);
+  border-bottom: 1px solid var(--border-mid);
+  padding: 1px 2px;
+  display: flex; gap: 0;
+  font-size: var(--type-sm);
+}
+.sap-menubar > span {
+  padding: 2px 8px 3px;
+  cursor: default;
+}
+.sap-menubar > span:hover { background: var(--header-blue-2); color: #fff; }
+.sap-menubar > span > u { text-decoration: underline; }
+
+.sap-toolbar {
+  background: var(--gradient-toolbar);
+  border-bottom: 1px solid var(--border-mid);
+  padding: 3px 4px;
+  display: flex; align-items: center; gap: 2px;
+  flex-wrap: wrap;
+}
+.sap-toolbar .sep {
+  width: 2px; height: 18px;
+  border-left: 1px solid var(--border-dark);
+  border-right: 1px solid var(--border-light);
+  margin: 0 3px;
+}
+
+.sap-statusbar {
+  background: var(--surface-2);
+  box-shadow: var(--bevel-in);
+  padding: 2px 6px;
+  font-size: var(--type-xs);
+  display: flex; gap: 12px; align-items: center;
+}
+
+/* ---------- Buttons ----------------------------------------- */
+.sap-btn {
+  font-family: var(--font-system);
+  font-size: var(--type-sm);
+  color: var(--fg);
+  background: var(--gradient-button);
+  border: none;
+  padding: 3px 12px;
+  min-height: 22px;
+  cursor: default;
+  box-shadow: var(--bevel-out-strong);
+  display: inline-flex; align-items: center; gap: 4px;
+  white-space: nowrap;
+}
+.sap-btn:hover { background: var(--gradient-button-hover); }
+.sap-btn:active, .sap-btn.is-pressed {
+  background: var(--gradient-button-press);
+  box-shadow: var(--bevel-in-strong);
+  padding: 4px 11px 2px 13px;
+}
+.sap-btn:disabled, .sap-btn.is-disabled {
+  color: var(--fg-disabled);
+  background: var(--surface-2);
+  box-shadow: var(--bevel-out);
+  text-shadow: 1px 1px 0 #fff;
+}
+.sap-btn:focus-visible { outline: 1px dotted #000; outline-offset: -4px; }
+.sap-btn.icon-only { padding: 3px 5px; }
+.sap-btn.toolbar {
+  min-height: 22px;
+  padding: 2px 4px;
+  background: transparent;
+  box-shadow: none;
+}
+.sap-btn.toolbar:hover { background: var(--accent-soft); box-shadow: var(--bevel-out); }
+.sap-btn.toolbar:active { box-shadow: var(--bevel-in); }
+
+/* ---------- Inputs ------------------------------------------ */
+.sap-input {
+  font-family: var(--font-system);
+  font-size: var(--type-sm);
+  color: var(--fg);
+  background: var(--surface-inset);
+  border: none;
+  padding: 2px 4px;
+  height: 20px;
+  box-shadow: var(--bevel-in-strong);
+  outline: none;
+}
+.sap-input:focus { background: #FFFFE1; }
+.sap-input:disabled, .sap-input.is-disabled {
+  background: var(--surface-2);
+  color: var(--fg-disabled);
+}
+.sap-input.is-error { background: #FFEAE7; }
+
+.sap-select { position: relative; display: inline-flex; }
+.sap-select .sap-input { padding-right: 18px; }
+.sap-select .arrow {
+  position: absolute; right: 1px; top: 1px; bottom: 1px; width: 16px;
+  background: var(--gradient-button);
+  box-shadow: var(--bevel-out);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 8px; cursor: default;
+}
+
+/* ---------- Checkbox / Radio -------------------------------- */
+.sap-check, .sap-radio {
+  display: inline-flex; align-items: center; gap: 4px;
+  cursor: default; user-select: none;
+}
+.sap-check input, .sap-radio input { display: none; }
+.sap-check .box, .sap-radio .box {
+  width: 13px; height: 13px;
+  background: var(--surface-inset);
+  box-shadow: var(--bevel-in-strong);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 10px; line-height: 1;
+}
+.sap-radio .box { border-radius: 50%; }
+.sap-check.is-checked .box::after  { content: "✓"; font-size: 11px; color: #000; font-weight: 700; }
+.sap-radio.is-checked .box::after  { content: ""; width: 5px; height: 5px; background: #000; border-radius: 50%; }
+.sap-check.is-disabled, .sap-radio.is-disabled { color: var(--fg-disabled); }
+.sap-check.is-disabled .box, .sap-radio.is-disabled .box { background: var(--surface-2); }
+
+/* ---------- Tabs -------------------------------------------- */
+.sap-tabs { display: flex; gap: 1px; align-items: flex-end; border-bottom: 1px solid var(--border-dark); }
+.sap-tab {
+  padding: 4px 14px 5px;
+  background: var(--surface-2);
+  box-shadow:
+      inset 1px 1px 0 var(--border-light),
+      inset -1px 0 0 var(--border-dark),
+      inset 0 -1px 0 var(--border-dark);
+  font-size: var(--type-sm); cursor: default;
+  position: relative; top: 1px;
+  clip-path: polygon(4px 0, calc(100% - 4px) 0, 100% 100%, 0 100%);
+}
+.sap-tab.is-active {
+  background: var(--header-blue-2);
+  color: #fff;
+  font-weight: 700;
+  z-index: 2;
+  padding-bottom: 6px;
+  box-shadow: inset 1px 1px 0 var(--header-gloss);
+}
+.sap-tab.is-disabled { color: var(--fg-disabled); }
+
+/* ---------- Tag --------------------------------------------- */
+.sap-tag {
+  display: inline-flex; align-items: center; gap: 3px;
+  padding: 1px 6px;
+  background: var(--status-info-bg);
+  color: var(--status-info);
+  font-size: var(--type-xs);
+  box-shadow: inset 0 0 0 1px var(--status-info);
+}
+.sap-tag.warning { background: var(--status-warning-bg); color: #8a5e00; box-shadow: inset 0 0 0 1px var(--status-warning); }
+.sap-tag.error   { background: var(--status-error); color: #fff; box-shadow: inset 0 0 0 1px #8c1a13; }
+.sap-tag.closable .x { cursor: default; font-weight: 700; }
+
+/* ---------- Switch ------------------------------------------ */
+.sap-switch {
+  width: 36px; height: 18px;
+  background: var(--surface-2);
+  box-shadow: var(--bevel-in);
+  position: relative;
+  display: inline-block;
+}
+.sap-switch::after {
+  content: "";
+  position: absolute; top: 1px; left: 1px;
+  width: 16px; height: 14px;
+  background: var(--gradient-button);
+  box-shadow: var(--bevel-out);
+  transition: none;
+}
+.sap-switch.is-on { background: var(--accent); }
+.sap-switch.is-on::after { left: 18px; }
+.sap-switch.is-disabled { background: var(--surface-2); opacity: .6; }
+
+/* ---------- Fieldset / Group panel -------------------------- */
+.sap-fieldset {
+  background: var(--surface-2);
+  box-shadow: var(--bevel-fieldset);
+  padding: 14px 10px 10px;
+  position: relative;
+}
+.sap-fieldset > .legend {
+  position: absolute; top: -7px; left: 8px;
+  background: var(--surface);
+  padding: 0 4px;
+  font-family: var(--font-bold); font-weight: 700;
+  font-size: var(--type-sm);
+}
+
+/* ---------- Table ------------------------------------------- */
+.sap-table {
+  width: 100%; border-collapse: collapse;
+  background: var(--surface-inset);
+  box-shadow: var(--bevel-in-strong);
+  font-size: var(--type-sm);
+}
+.sap-table th, .sap-table td {
+  padding: 2px 6px;
+  border-right: 1px solid var(--border-mid);
+  border-bottom: 1px solid var(--border-mid);
+  text-align: left;
+  font-weight: normal;
+}
+.sap-table thead th {
+  background: var(--gradient-toolbar);
+  box-shadow: var(--bevel-out);
+  font-family: var(--font-bold); font-weight: 700;
+  padding: 3px 6px;
+}
+.sap-table tr.is-selected { background: var(--accent); color: #000; }
+.sap-table tr.is-hovered { background: var(--accent-pale); }
+
+/* ---------- Dialog / Message Box ---------------------------- */
+.sap-dialog {
+  background: var(--surface);
+  box-shadow: var(--bevel-out-strong), 2px 2px 0 rgba(0,0,0,.25);
+  min-width: 240px;
+}
+.sap-dialog .body { padding: 12px; }
+.sap-dialog .footer {
+  padding: 6px 8px;
+  display: flex; justify-content: flex-end; gap: 4px;
+  border-top: 1px solid var(--border-light);
+  box-shadow: inset 0 1px 0 var(--border-dark);
+}
+
+/* ---------- Message strip ----------------------------------- */
+.sap-message {
+  display: flex; align-items: center; gap: 6px;
+  padding: 3px 6px;
+  font-size: var(--type-sm);
+  box-shadow: inset 0 0 0 1px var(--border-mid);
+  background: var(--surface-2);
+}
+.sap-message .x { margin-left: auto; cursor: default; font-weight: 700; }
+.sap-message.info    { background: var(--status-info-bg);    box-shadow: inset 0 0 0 1px var(--status-info); }
+.sap-message.warning { background: var(--status-warning-bg); box-shadow: inset 0 0 0 1px var(--status-warning); }
+.sap-message.error   { background: var(--status-error);      color: #fff; box-shadow: inset 0 0 0 1px #8c1a13; }
+.sap-message.success { background: var(--status-success-bg); box-shadow: inset 0 0 0 1px var(--status-success); }
+
+/* ---------- Progress ---------------------------------------- */
+.sap-progress {
+  height: 14px;
+  background: var(--surface-inset);
+  box-shadow: var(--bevel-in);
+  display: flex;
+}
+.sap-progress > .bar {
+  background: repeating-linear-gradient(90deg,
+    var(--header-blue-2) 0, var(--header-blue-2) 6px,
+    var(--header-blue-3) 6px, var(--header-blue-3) 10px);
+  height: 100%;
+}
+
+/* ---------- Slider ------------------------------------------ */
+.sap-slider { position: relative; height: 16px; display: flex; align-items: center; }
+.sap-slider .track {
+  flex: 1; height: 4px;
+  background: var(--surface-2);
+  box-shadow: var(--bevel-in);
+}
+.sap-slider .thumb {
+  position: absolute;
+  width: 10px; height: 16px;
+  background: var(--gradient-button);
+  box-shadow: var(--bevel-out-strong);
+}
+
+/* ---------- Avatar ------------------------------------------ */
+.sap-avatar {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  box-shadow: 0 0 0 1px var(--border-dark), inset 0 0 0 2px var(--border-light);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-family: var(--font-bold); font-weight: 700;
+}
+
+/* ---------- Badge ------------------------------------------- */
+.sap-badge {
+  position: relative; display: inline-block;
+}
+.sap-badge .count {
+  position: absolute; top: -4px; right: -4px;
+  background: var(--status-error);
+  color: #fff;
+  font-size: 9px; font-weight: 700;
+  border-radius: 9999px;
+  min-width: 14px; height: 14px;
+  padding: 0 3px;
+  display: inline-flex; align-items: center; justify-content: center;
+  box-shadow: 0 0 0 1px #fff;
+}
+
+/* ---------- Breadcrumb / pagination ------------------------- */
+.sap-crumbs { display: flex; gap: 4px; align-items: center; font-size: var(--type-sm); }
+.sap-crumbs .sep { color: var(--fg-muted); }
+
+.sap-pagination { display: inline-flex; gap: 1px; }
+.sap-pagination .pg {
+  min-width: 22px; height: 22px;
+  padding: 0 6px;
+  background: var(--gradient-button);
+  box-shadow: var(--bevel-out);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: var(--type-sm); cursor: default;
+}
+.sap-pagination .pg.is-active { background: var(--accent); font-weight: 700; }
+.sap-pagination .pg:hover { background: var(--gradient-button-hover); }

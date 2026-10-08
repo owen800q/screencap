@@ -1,0 +1,93 @@
+<UserControl x:Class="RetroCap.Capture.CaptureToolbar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:ui="clr-namespace:RetroCap.Ui"
+             FontFamily="{StaticResource Sap.Font}" FontSize="11"
+             UseLayoutRounding="True" SnapsToDevicePixels="True"
+             TextOptions.TextFormattingMode="Display">
+  <ui:Bevel Kind="OutStrong" Background="{StaticResource Sap.Surface}">
+    <StackPanel>
+      <!-- Row 1: application command toolbar -->
+      <Border Style="{StaticResource Sap.Toolbar}">
+        <StackPanel Orientation="Horizontal">
+          <ToggleButton x:Name="RectTool" Style="{StaticResource Sap.ToolToggle}" Tag="Rectangle" ToolTip="Rectangle  (R)">
+            <Image Source="{StaticResource Icon.tool-rect}" Style="{StaticResource Sap.Icon}"/>
+          </ToggleButton>
+          <ToggleButton x:Name="EllipseTool" Style="{StaticResource Sap.ToolToggle}" Tag="Ellipse" ToolTip="Ellipse  (E)">
+            <Image Source="{StaticResource Icon.tool-ellipse}" Style="{StaticResource Sap.Icon}"/>
+          </ToggleButton>
+          <ToggleButton x:Name="ArrowTool" Style="{StaticResource Sap.ToolToggle}" Tag="Arrow" ToolTip="Arrow  (A)">
+            <Image Source="{StaticResource Icon.tool-arrow}" Style="{StaticResource Sap.Icon}"/>
+          </ToggleButton>
+          <ToggleButton x:Name="PenTool" Style="{StaticResource Sap.ToolToggle}" Tag="Pen" ToolTip="Pen  (P)">
+            <Image Source="{StaticResource Icon.tool-pen}" Style="{StaticResource Sap.Icon}"/>
+          </ToggleButton>
+          <ToggleButton x:Name="HighlighterTool" Style="{StaticResource Sap.ToolToggle}" Tag="Highlighter" ToolTip="Highlighter  (H)">
+            <Image Source="{StaticResource Icon.tool-highlighter}" Style="{StaticResource Sap.Icon}"/>
+          </ToggleButton>
+          <ToggleButton x:Name="TextTool" Style="{StaticResource Sap.ToolToggle}" Tag="Text" ToolTip="Text  (T)">
+            <Image Source="{StaticResource Icon.tool-text}" Style="{StaticResource Sap.Icon}"/>
+          </ToggleButton>
+          <ToggleButton x:Name="MosaicTool" Style="{StaticResource Sap.ToolToggle}" Tag="Mosaic" ToolTip="Mosaic  (M)">
+            <Image Source="{StaticResource Icon.tool-mosaic}" Style="{StaticResource Sap.Icon}"/>
+          </ToggleButton>
+
+          <Border Style="{StaticResource Sap.ToolSeparator}"/>
+          <Button x:Name="UndoButton" Style="{StaticResource Sap.ToolButton}" ToolTip="Undo  (Ctrl+Z)">
+            <Image Source="{StaticResource Icon.undo}" Style="{StaticResource Sap.Icon}"/>
+          </Button>
+
+          <Border Style="{StaticResource Sap.ToolSeparator}"/>
+          <Button x:Name="PinButton" Style="{StaticResource Sap.ToolButton}" ToolTip="Pin to Screen  (F3)">
+            <Image Source="{StaticResource Icon.pin}" Style="{StaticResource Sap.Icon}"/>
+          </Button>
+          <Button x:Name="SaveButton" Style="{StaticResource Sap.ToolButton}" ToolTip="Save As  (Ctrl+S)">
+            <Image Source="{StaticResource Icon.save}" Style="{StaticResource Sap.Icon}"/>
+          </Button>
+
+          <Border Style="{StaticResource Sap.ToolSeparator}"/>
+          <Button x:Name="CancelButton" Style="{StaticResource Sap.ToolButton}" ToolTip="Cancel  (Esc)" Padding="4,2">
+            <StackPanel Orientation="Horizontal">
+              <Image Source="{StaticResource Icon.x}" Style="{StaticResource Sap.Icon}"/>
+              <TextBlock Text="Cancel" Margin="3,0,0,0" VerticalAlignment="Center"/>
+            </StackPanel>
+          </Button>
+          <Button x:Name="CopyButton" Style="{StaticResource Sap.Button.Primary}" ToolTip="Copy to Clipboard  (Enter)"
+                  Margin="4,0,0,0" MinWidth="0" Padding="6,1" Focusable="False">
+            <StackPanel Orientation="Horizontal">
+              <Image Source="{StaticResource Icon.check}" Style="{StaticResource Sap.Icon}"/>
+              <TextBlock Text="Copy" Margin="3,0,0,0" FontWeight="Bold" VerticalAlignment="Center"/>
+            </StackPanel>
+          </Button>
+        </StackPanel>
+      </Border>
+
+      <!-- Row 2: tool properties (size + color), shown when a drawing tool is active -->
+      <Border x:Name="PropertiesRow" Background="{StaticResource Sap.Surface2}" Padding="4,3" Visibility="Collapsed">
+        <StackPanel Orientation="Horizontal">
+          <ToggleButton x:Name="Size0" Style="{StaticResource Sap.ToolToggle}" Tag="0" ToolTip="Small">
+            <Ellipse Width="4" Height="4" Fill="Black"/>
+          </ToggleButton>
+          <ToggleButton x:Name="Size1" Style="{StaticResource Sap.ToolToggle}" Tag="1" ToolTip="Medium">
+            <Ellipse Width="7" Height="7" Fill="Black"/>
+          </ToggleButton>
+          <ToggleButton x:Name="Size2" Style="{StaticResource Sap.ToolToggle}" Tag="2" ToolTip="Large">
+            <Ellipse Width="11" Height="11" Fill="Black"/>
+          </ToggleButton>
+
+          <StackPanel x:Name="ColorSection" Orientation="Horizontal">
+            <Border Style="{StaticResource Sap.ToolSeparator}" Height="30"/>
+            <ui:Bevel Kind="InStrong" Background="White" Width="30" Height="30" Padding="2" ToolTip="Current Color">
+              <Rectangle x:Name="CurrentColor" Fill="#C8281E"/>
+            </ui:Bevel>
+            <UniformGrid x:Name="Palette" Rows="2" Columns="8" Margin="4,0,0,0" VerticalAlignment="Center"/>
+            <Button x:Name="MoreColors" Style="{StaticResource Sap.ToolButton}" Margin="4,0,0,0" Padding="4,2"
+                    ToolTip="Define Custom Color">
+              <TextBlock Text="More..." VerticalAlignment="Center"/>
+            </Button>
+          </StackPanel>
+        </StackPanel>
+      </Border>
+    </StackPanel>
+  </ui:Bevel>
+</UserControl>

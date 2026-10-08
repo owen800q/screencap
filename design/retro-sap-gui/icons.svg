@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  
+  <defs>
+    <!-- Icon class palette (RetroCap): maps the sprite's class names to system tokens -->
+    <style>
+      .doc-line{fill:#000000} .doc-fill{fill:#FFFFFF} .doc-fold{fill:#A6B4C5}
+      .white{fill:#FFFFFF} .gray{fill:#A6B4C5} .blue{fill:#2A6FB8} .blue-d{fill:#003D7A}
+      .green{fill:#2E8B3E} .red{fill:#C8281E} .yellow{fill:#F0AB00}
+    </style>
+
+    
+  </defs>
+
+  
+  <symbol id="new" viewBox="0 0 16 16">
+    <rect class="doc-line" x="3" y="1" width="9" height="14"></rect>
+    <rect class="doc-fill" x="4" y="2" width="7" height="12"></rect>
+    <polygon class="doc-fold" points="9,2 11,4 11,2"></polygon>
+    <rect class="doc-line" x="9" y="2" width="1" height="2"></rect>
+    <rect class="doc-line" x="9" y="3" width="3" height="1"></rect>
+    <rect class="green" x="11" y="9" width="3" height="1"></rect>
+    <rect class="green" x="12" y="8" width="1" height="3"></rect>
+  </symbol>
+
+  
+  <symbol id="open" viewBox="0 0 16 16">
+    <polygon class="doc-line" points="1,4 1,13 15,13 15,6 7,6 6,4"></polygon>
+    <polygon class="yellow" points="2,5 6,5 7,7 14,7 14,12 2,12"></polygon>
+    <rect class="white" x="3" y="8" width="10" height="3"></rect>
+  </symbol>
+
+  
+  <symbol id="save" viewBox="0 0 16 16">
+    <rect class="doc-line" x="2" y="2" width="12" height="12"></rect>
+    <rect class="blue" x="3" y="3" width="10" height="10"></rect>
+    <rect class="white" x="5" y="3" width="6" height="4"></rect>
+    <rect class="doc-line" x="9" y="4" width="1" height="2"></rect>
+    <rect class="white" x="4" y="9" width="8" height="4"></rect>
+    <rect class="doc-line" x="5" y="10" width="6" height="1"></rect>
+    <rect class="doc-line" x="5" y="12" width="6" height="1"></rect>
+  </symbol>
+
+  
+  <symbol id="saveas" viewBox="0 0 16 16">
+    <use href="#save"></use>
+    <rect class="white" x="9" y="9" width="6" height="6"></rect>
+    <path class="doc-line" d="M11 10 L13 12 L11 14 L11 13 L9 13 L9 11 L11 11 Z"></path>
+  </symbol>
+
+  
+  <symbol id="print" viewBox="0 0 16 16">
+    <rect class="doc-line" x="3" y="2" width="10" height="5"></rect>
+    <rect class="white" x="4" y="3" width="8" height="3"></rect>
+    <rect class="doc-line" x="1" y="6" width="14" height="6"></rect>
+    <rect class="gray" x="2" y="7" width="12" height="4"></rect>
+    <rect class="green" x="11" y="8" width="2" height="1"></rect>
+    <rect class="doc-line" x="3" y="10" width="10" height="4"></rect>
+    <rect class="white" x="4" y="11" width="8" height="2"></rect>
+  </symbol>
+
+  
+  <symbol id="cut" viewBox="0 0 16 16">
+    <circle cx="4" cy="11" r="2.5" fill="none" stroke="#000" stroke-width="1"></circle>
+    <circle cx="11" cy="11" r="2.5" fill="none" stroke="#000" stroke-width="1"></circle>
+    <line x1="6" y1="9" x2="13" y2="2" stroke="#000" stroke-width="1"></line>
+    <line x1="9" y1="9" x2="2" y2="2" stroke="#000" stroke-width="1"></line>
+  </symbol>
+
+  
+  <symbol id="copy" viewBox="0 0 16 16">
+    <rect class="doc-line" x="2" y="1" width="8" height="10"></rect>
+    <rect class="doc-fill" x="3" y="2" width="6" height="8"></rect>
+    <rect class="doc-line" x="6" y="5" width="9" height="10"></rect>
+    <rect class="doc-fill" x="7" y="6" width="7" height="8"></rect>
+  </symbol>
+
+  
+  <symbol id="paste" viewBox="0 0 16 16">
+    <rect class="doc-line" x="2" y="3" width="12" height="12"></rect>
+    <rect class="yellow" x="3" y="4" width="10" height="10"></rect>
+    <rect class="doc-line" x="5" y="1" width="6" height="3"></rect>
+    <rect class="doc-fill" x="4" y="6" width="8" height="7"></rect>
+    <rect class="doc-line" x="5" y="8" width="6" height="1"></rect>
+    <rect class="doc-line" x="5" y="10" width="6" height="1"></rect>
+  </symbol>
+
+  
+  <symbol id="undo" viewBox="0 0 16 16">
+    <path d="M3 8 L7 4 L7 6 L11 6 Q14 6 14 9 L14 12 L12 12 L12 9 Q12 8 11 8 L7 8 L7 10 Z" class="blue"></path>
+    <path d="M3 8 L7 4 L7 6 L11 6 Q14 6 14 9 L14 12 L12 12 L12 9 Q12 8 11 8 L7 8 L7 10 Z" fill="none" stroke="#000" stroke-width="0.5"></path>
+  </symbol>
+
+  
+  <symbol id="redo" viewBox="0 0 16 16">
+    <g transform="translate(16,0) scale(-1,1)"><use href="#undo"></use></g>
+  </symbol>
+
+  
+  <symbol id="delete" viewBox="0 0 16 16">
+    <rect class="doc-line" x="2" y="3" width="12" height="2"></rect>
+    <rect class="doc-line" x="6" y="1" width="4" height="2"></rect>
+    <rect class="doc-line" x="3" y="5" width="10" height="10"></rect>
+    <rect class="white" x="4" y="6" width="8" height="8"></rect>
+    <rect class="red" x="5" y="7" width="1" height="6"></rect>
+    <rect class="red" x="7" y="7" width="1" height="6"></rect>
+    <rect class="red" x="9" y="7" width="1" height="6"></rect>
+    <rect class="red" x="11" y="7" width="1" height="6"></rect>
+  </symbol>
+
+  
+  <symbol id="edit" viewBox="0 0 16 16">
+    <polygon class="yellow" points="1,15 4,12 11,5 14,8 7,15 4,15"></polygon>
+    <polygon class="doc-line" points="11,5 14,8 12,10 9,7"></polygon>
+    <polygon class="doc-line" points="1,15 4,15 4,12"></polygon>
+  </symbol>
+
+  
+  <symbol id="find" viewBox="0 0 16 16">
+    <circle cx="6" cy="6" r="4" fill="#fff" stroke="#000" stroke-width="1.5"></circle>
+    <line x1="9" y1="9" x2="14" y2="14" stroke="#000" stroke-width="2"></line>
+    <rect class="blue" x="5" y="3" width="2" height="1"></rect>
+    <rect class="blue" x="3" y="5" width="1" height="2"></rect>
+  </symbol>
+
+  
+  <symbol id="refresh" viewBox="0 0 16 16">
+    <path d="M8 2 A6 6 0 1 1 2 8" fill="none" stroke="#2E8B3E" stroke-width="2"></path>
+    <polygon class="green" points="8,0 12,3 8,5"></polygon>
+  </symbol>
+
+  
+  <symbol id="execute" viewBox="0 0 16 16">
+    <polygon class="green" points="3,2 13,8 3,14"></polygon>
+    <polygon points="3,2 13,8 3,14" fill="none" stroke="#000" stroke-width="0.5"></polygon>
+  </symbol>
+
+  
+  <symbol id="back" viewBox="0 0 16 16">
+    <polygon class="blue-d" points="1,8 7,2 7,5 14,5 14,11 7,11 7,14"></polygon>
+    <polygon points="1,8 7,2 7,5 14,5 14,11 7,11 7,14" fill="none" stroke="#000" stroke-width="0.5"></polygon>
+  </symbol>
+
+  
+  <symbol id="forward" viewBox="0 0 16 16">
+    <g transform="translate(16,0) scale(-1,1)"><use href="#back"></use></g>
+  </symbol>
+
+  
+  <symbol id="up" viewBox="0 0 16 16">
+    <polygon class="blue-d" points="8,1 14,7 11,7 11,14 5,14 5,7 2,7"></polygon>
+  </symbol>
+
+  
+  <symbol id="home" viewBox="0 0 16 16">
+    <polygon class="red" points="8,1 1,7 3,7 3,14 13,14 13,7 15,7"></polygon>
+    <rect class="white" x="6" y="9" width="4" height="5"></rect>
+  </symbol>
+
+  
+  <symbol id="help" viewBox="0 0 16 16">
+    <circle cx="8" cy="8" r="7" class="blue"></circle>
+    <text x="8" y="12" text-anchor="middle" font-family="Tahoma" font-weight="700" font-size="11" fill="#fff">?</text>
+  </symbol>
+
+  
+  <symbol id="settings" viewBox="0 0 16 16">
+    <path class="gray" d="M7 0 L9 0 L9 3 L11 4 L13 2 L14 3 L12 5 L13 7 L16 7 L16 9 L13 9 L12 11 L14 13 L13 14 L11 12 L9 13 L9 16 L7 16 L7 13 L5 12 L3 14 L2 13 L4 11 L3 9 L0 9 L0 7 L3 7 L4 5 L2 3 L3 2 L5 4 L7 3 Z"></path>
+    <circle cx="8" cy="8" r="2.5" class="white"></circle>
+  </symbol>
+
+  
+  <symbol id="gear" viewBox="0 0 16 16"><use href="#settings"></use></symbol>
+
+  
+  <symbol id="table" viewBox="0 0 16 16">
+    <rect class="doc-line" x="1" y="2" width="14" height="12"></rect>
+    <rect class="white" x="2" y="3" width="12" height="10"></rect>
+    <rect class="blue" x="2" y="3" width="12" height="3"></rect>
+    <line x1="2" y1="9" x2="14" y2="9" stroke="#000" stroke-width="0.5"></line>
+    <line x1="6" y1="6" x2="6" y2="13" stroke="#000" stroke-width="0.5"></line>
+    <line x1="10" y1="6" x2="10" y2="13" stroke="#000" stroke-width="0.5"></line>
+  </symbol>
+
+  
+  <symbol id="chart" viewBox="0 0 16 16">
+    <rect class="doc-line" x="1" y="1" width="14" height="14"></rect>
+    <rect class="white" x="2" y="2" width="12" height="12"></rect>
+    <rect class="blue" x="3" y="9" width="2" height="4"></rect>
+    <rect class="green" x="6" y="6" width="2" height="7"></rect>
+    <rect class="yellow" x="9" y="3" width="2" height="10"></rect>
+    <rect class="red" x="12" y="7" width="1" height="6"></rect>
+  </symbol>
+
+  
+  <symbol id="filter" viewBox="0 0 16 16">
+    <polygon class="blue" points="1,2 15,2 10,8 10,14 6,12 6,8"></polygon>
+    <polygon points="1,2 15,2 10,8 10,14 6,12 6,8" fill="none" stroke="#000" stroke-width="0.5"></polygon>
+  </symbol>
+
+  
+  <symbol id="sort" viewBox="0 0 16 16">
+    <line x1="2" y1="3" x2="14" y2="3" stroke="#000" stroke-width="2"></line>
+    <line x1="2" y1="7" x2="11" y2="7" stroke="#000" stroke-width="2"></line>
+    <line x1="2" y1="11" x2="8" y2="11" stroke="#000" stroke-width="2"></line>
+    <line x1="2" y1="14" x2="5" y2="14" stroke="#000" stroke-width="2"></line>
+  </symbol>
+
+  
+  <symbol id="export" viewBox="0 0 16 16">
+    <rect class="doc-line" x="2" y="3" width="9" height="11"></rect>
+    <rect class="white" x="3" y="4" width="7" height="9"></rect>
+    <polygon class="green" points="9,7 14,7 14,5 16,8 14,11 14,9 9,9"></polygon>
+  </symbol>
+
+  
+  <symbol id="import" viewBox="0 0 16 16">
+    <rect class="doc-line" x="5" y="3" width="9" height="11"></rect>
+    <rect class="white" x="6" y="4" width="7" height="9"></rect>
+    <polygon class="blue" points="7,7 2,7 2,5 0,8 2,11 2,9 7,9"></polygon>
+  </symbol>
+
+  
+  <symbol id="mail" viewBox="0 0 16 16">
+    <rect class="doc-line" x="1" y="3" width="14" height="10"></rect>
+    <rect class="white" x="2" y="4" width="12" height="8"></rect>
+    <polygon class="doc-line" points="2,4 8,9 14,4 14,5 8,10 2,5"></polygon>
+  </symbol>
+
+  
+  <symbol id="user" viewBox="0 0 16 16">
+    <circle cx="8" cy="5" r="3" class="blue"></circle>
+    <path class="blue" d="M2 15 Q2 9 8 9 Q14 9 14 15 Z"></path>
+  </symbol>
+
+  
+  <symbol id="lock" viewBox="0 0 16 16">
+    <path d="M5 7 L5 5 Q5 2 8 2 Q11 2 11 5 L11 7" fill="none" stroke="#000" stroke-width="1.5"></path>
+    <rect class="yellow" x="3" y="7" width="10" height="8"></rect>
+    <rect class="doc-line" x="3" y="7" width="10" height="8" fill="none" stroke="#000" stroke-width="0.5"></rect>
+    <rect class="doc-line" x="7" y="10" width="2" height="3"></rect>
+  </symbol>
+
+  
+  <symbol id="check" viewBox="0 0 16 16">
+    <polygon class="green" points="2,8 6,12 14,3 14,5 6,14 2,10"></polygon>
+  </symbol>
+
+  
+  <symbol id="x" viewBox="0 0 16 16">
+    <line x1="3" y1="3" x2="13" y2="13" stroke="#C8281E" stroke-width="2.5"></line>
+    <line x1="13" y1="3" x2="3" y2="13" stroke="#C8281E" stroke-width="2.5"></line>
+  </symbol>
+
+  
+  <symbol id="warning" viewBox="0 0 16 16">
+    <polygon class="yellow" points="8,1 15,14 1,14"></polygon>
+    <polygon points="8,1 15,14 1,14" fill="none" stroke="#000" stroke-width="0.5"></polygon>
+    <rect class="doc-line" x="7" y="6" width="2" height="5"></rect>
+    <rect class="doc-line" x="7" y="12" width="2" height="2"></rect>
+  </symbol>
+
+  
+  <symbol id="info" viewBox="0 0 16 16">
+    <circle cx="8" cy="8" r="7" class="blue"></circle>
+    <rect class="white" x="7" y="7" width="2" height="6"></rect>
+    <rect class="white" x="7" y="3" width="2" height="2"></rect>
+  </symbol>
+
+  
+  <symbol id="error" viewBox="0 0 16 16">
+    <circle cx="8" cy="8" r="7" class="red"></circle>
+    <line x1="4" y1="4" x2="12" y2="12" stroke="#fff" stroke-width="2.5"></line>
+    <line x1="12" y1="4" x2="4" y2="12" stroke="#fff" stroke-width="2.5"></line>
+  </symbol>
+
+  
+  <symbol id="success" viewBox="0 0 16 16">
+    <circle cx="8" cy="8" r="7" class="green"></circle>
+    <polygon class="white" points="4,8 7,11 12,5 12,7 7,13 4,10"></polygon>
+  </symbol>
+
+  
+  <symbol id="plus" viewBox="0 0 16 16">
+    <rect class="green" x="6" y="2" width="4" height="12"></rect>
+    <rect class="green" x="2" y="6" width="12" height="4"></rect>
+  </symbol>
+
+  
+  <symbol id="minus" viewBox="0 0 16 16">
+    <rect class="red" x="2" y="6" width="12" height="4"></rect>
+  </symbol>
+
+  
+  <symbol id="calendar" viewBox="0 0 16 16">
+    <rect class="doc-line" x="1" y="2" width="14" height="13"></rect>
+    <rect class="white" x="2" y="3" width="12" height="11"></rect>
+    <rect class="red" x="2" y="3" width="12" height="3"></rect>
+    <rect class="doc-line" x="4" y="1" width="2" height="4"></rect>
+    <rect class="doc-line" x="10" y="1" width="2" height="4"></rect>
+    <rect class="doc-line" x="4" y="8" width="2" height="2"></rect>
+    <rect class="doc-line" x="7" y="8" width="2" height="2"></rect>
+    <rect class="doc-line" x="10" y="8" width="2" height="2"></rect>
+    <rect class="doc-line" x="4" y="11" width="2" height="2"></rect>
+    <rect class="yellow" x="7" y="11" width="2" height="2"></rect>
+    <rect class="doc-line" x="10" y="11" width="2" height="2"></rect>
+  </symbol>
+
+  
+  <symbol id="clock" viewBox="0 0 16 16">
+    <circle cx="8" cy="8" r="6.5" fill="#fff" stroke="#000" stroke-width="1"></circle>
+    <line x1="8" y1="8" x2="8" y2="4" stroke="#000" stroke-width="1.5"></line>
+    <line x1="8" y1="8" x2="11" y2="9" stroke="#000" stroke-width="1.5"></line>
+    <circle cx="8" cy="8" r="0.7" fill="#000"></circle>
+  </symbol>
+
+  
+  <symbol id="folder" viewBox="0 0 16 16">
+    <polygon class="yellow" points="1,4 6,4 7,5 15,5 15,13 1,13"></polygon>
+    <polygon points="1,4 6,4 7,5 15,5 15,13 1,13" fill="none" stroke="#000" stroke-width="0.75"></polygon>
+  </symbol>
+
+  
+  <symbol id="document" viewBox="0 0 16 16">
+    <polygon class="white" points="3,1 11,1 13,3 13,15 3,15"></polygon>
+    <polygon points="3,1 11,1 13,3 13,15 3,15" fill="none" stroke="#000" stroke-width="1"></polygon>
+    <polygon class="doc-fold" points="11,1 13,3 11,3"></polygon>
+    <line x1="5" y1="6" x2="11" y2="6" stroke="#000" stroke-width="0.5"></line>
+    <line x1="5" y1="9" x2="11" y2="9" stroke="#000" stroke-width="0.5"></line>
+    <line x1="5" y1="12" x2="9" y2="12" stroke="#000" stroke-width="0.5"></line>
+  </symbol>
+
+  
+  <symbol id="attach" viewBox="0 0 16 16">
+    <path d="M11 4 L11 11 Q11 14 8 14 Q5 14 5 11 L5 5 Q5 3 7 3 Q9 3 9 5 L9 11" fill="none" stroke="#6E7A89" stroke-width="1.5"></path>
+  </symbol>
+
+  <!-- ===== RetroCap capture tools (extension) ===== -->
+  <symbol id="tool-rect" viewBox="0 0 16 16">
+    <rect class="red" x="2" y="3" width="12" height="1"></rect>
+    <rect class="red" x="2" y="12" width="12" height="1"></rect>
+    <rect class="red" x="2" y="3" width="1" height="10"></rect>
+    <rect class="red" x="13" y="3" width="1" height="10"></rect>
+    <rect class="red" x="3" y="4" width="10" height="1"></rect>
+    <rect class="red" x="3" y="11" width="10" height="1"></rect>
+    <rect class="red" x="3" y="4" width="1" height="8"></rect>
+    <rect class="red" x="12" y="4" width="1" height="8"></rect>
+  </symbol>
+
+  <symbol id="tool-ellipse" viewBox="0 0 16 16">
+    <ellipse cx="8" cy="8" rx="6" ry="5" fill="none" stroke="#C8281E" stroke-width="1.75"></ellipse>
+  </symbol>
+
+  <symbol id="tool-arrow" viewBox="0 0 16 16">
+    <polygon class="red" points="2,13 8,7 6,5 14,2 11,10 9,8 3,14"></polygon>
+    <polygon points="2,13 8,7 6,5 14,2 11,10 9,8 3,14" fill="none" stroke="#000" stroke-width="0.5"></polygon>
+  </symbol>
+
+  <symbol id="tool-pen" viewBox="0 0 16 16">
+    <polygon class="blue" points="1,15 4,12 11,5 14,8 7,15 4,15"></polygon>
+    <polygon class="doc-line" points="11,5 14,8 12,10 9,7"></polygon>
+    <polygon class="white" points="2,14 4,13 3,12"></polygon>
+    <polygon class="doc-line" points="1,15 3,15 1,13"></polygon>
+  </symbol>
+
+  <symbol id="tool-highlighter" viewBox="0 0 16 16">
+    <rect class="yellow" x="1" y="13" width="9" height="3"></rect>
+    <polygon class="yellow" points="5,9 11,3 14,6 8,12"></polygon>
+    <polygon points="5,9 11,3 14,6 8,12" fill="none" stroke="#000" stroke-width="0.5"></polygon>
+    <polygon class="doc-line" points="5,9 8,12 6,13 4,11"></polygon>
+  </symbol>
+
+  <symbol id="tool-text" viewBox="0 0 16 16">
+    <path class="doc-line" fill-rule="evenodd" d="M3 14 L7 2 L9 2 L13 14 L11 14 L10 11 L6 11 L5 14 Z M6.7 9 L9.3 9 L8 5 Z"></path>
+  </symbol>
+
+  <symbol id="tool-mosaic" viewBox="0 0 16 16">
+    <rect class="doc-line" x="1" y="1" width="14" height="14"></rect>
+    <rect class="blue" x="2" y="2" width="4" height="4"></rect>
+    <rect class="white" x="6" y="2" width="4" height="4"></rect>
+    <rect class="gray" x="10" y="2" width="4" height="4"></rect>
+    <rect class="gray" x="2" y="6" width="4" height="4"></rect>
+    <rect class="blue-d" x="6" y="6" width="4" height="4"></rect>
+    <rect class="blue" x="10" y="6" width="4" height="4"></rect>
+    <rect class="white" x="2" y="10" width="4" height="4"></rect>
+    <rect class="blue" x="6" y="10" width="4" height="4"></rect>
+    <rect class="white" x="10" y="10" width="4" height="4"></rect>
+  </symbol>
+
+  <symbol id="pin" viewBox="0 0 16 16">
+    <rect class="doc-line" x="7" y="9" width="2" height="6"></rect>
+    <polygon class="red" points="5,1 11,1 11,2 10,2 10,7 13,9 3,9 6,7 6,2 5,2"></polygon>
+    <polygon points="5,1 11,1 11,2 10,2 10,7 13,9 3,9 6,7 6,2 5,2" fill="none" stroke="#000" stroke-width="0.5"></polygon>
+    <rect class="white" x="7" y="2" width="1" height="5"></rect>
+  </symbol>
+
+  <symbol id="capture" viewBox="0 0 16 16">
+    <rect class="doc-line" x="1" y="4" width="14" height="10"></rect>
+    <rect class="gray" x="2" y="5" width="12" height="8"></rect>
+    <rect class="doc-line" x="5" y="2" width="6" height="3"></rect>
+    <rect class="gray" x="6" y="3" width="4" height="2"></rect>
+    <circle cx="8" cy="9" r="3.5" class="doc-line"></circle>
+    <circle cx="8" cy="9" r="2.5" class="blue"></circle>
+    <rect class="white" x="7" y="7" width="1" height="1"></rect>
+    <rect class="yellow" x="12" y="6" width="1" height="1"></rect>
+  </symbol>
+</svg>
