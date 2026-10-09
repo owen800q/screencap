@@ -2,10 +2,9 @@
 
 A QQ-style screenshot and annotation tool for Windows 10 and 11, written in native .NET 8 (WPF).
 Press **Ctrl+Alt+A** anywhere, pick a region, mark it up, and copy it to the clipboard.
-The UI follows the **Retro SAP GUI** design system (see `design/retro-sap-gui/`).
+The UI follows the [**Retro.Net design system**](https://github.com/owen800q/Retro.NET).
 
-> 仿 QQ 截圖：喺任何程式按 **Ctrl+Alt+A** 截圖，可以畫框、箭嘴、寫字、螢光筆、馬賽克、揀顏色，
-> 然後複製到剪貼簿、存檔或者釘喺螢幕上。介面用 Retro SAP GUI design system。
+
 
 ![Annotating a capture](docs/screenshot-annotate.png)
 
